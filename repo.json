@@ -1,9 +1,8 @@
 {
-  "iconUrl": "https://raw.githubusercontent.com/Kraptor123/Cs-GizliKeyif/refs/heads/master/.github/logo/gizlikeyif.png",
   "name": "Cs-GizliKeyif +18 | @stf6",
-  "description": "+18 Repo (fork with custom providers)",
+  "description": "+18 custom providers",
   "manifestVersion": 1,
   "pluginLists": [
-    "https://raw.githubusercontent.com/stf6/Cs-GizliKeyif/refs/heads/builds/plugins.json"
+    "https://cdn.jsdelivr.net/gh/stf6/Cs-GizliKeyif@master/plugins-mini.json"
   ]
 }
