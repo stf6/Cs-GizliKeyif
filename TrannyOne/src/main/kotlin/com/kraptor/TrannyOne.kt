@@ -44,7 +44,10 @@ class TrannyOne : MainAPI() {
     private fun Element.toSearchResult(): SearchResponse? {
         val a = this.selectFirst("a[href*=/video], a[href*=/videos/]") ?: this.selectFirst("a[href]") ?: return null
         val href = fixUrlNull(a.attr("href")) ?: return null
-        val title = a.attr("title").ifBlank { this.selectFirst(".title, h2, h3")?.text() }.ifBlank { a.text() }.ifBlank { return null }
+        val title = a.attr("title")
+            .ifBlank { this.selectFirst(".title, h2, h3")?.text().orEmpty() }
+            .ifBlank { a.text() }
+            .ifBlank { return null }
         val poster = fixUrlNull(
             this.selectFirst("img")?.attr("data-src")
                 ?: this.selectFirst("img")?.attr("data-original")

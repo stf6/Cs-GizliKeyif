@@ -42,7 +42,9 @@ class GoonHub : MainAPI() {
     private fun Element.toSearchResult(): SearchResponse? {
         val a = this.selectFirst("a[href]") ?: return null
         val href = fixUrlNull(a.attr("href")) ?: return null
-        val title = a.attr("title").ifBlank { this.selectFirst("h2, h3, .title")?.text() }.ifBlank { return null }
+        val title = a.attr("title")
+            .ifBlank { this.selectFirst("h2, h3, .title")?.text().orEmpty() }
+            .ifBlank { return null }
         val poster = fixUrlNull(
             this.selectFirst("img")?.attr("data-src")
                 ?: this.selectFirst("img")?.attr("data-lazy-src")
