@@ -1,5 +1,5 @@
 // ! Bu araç @stf6 / Cs-GizliKeyif için yazılmıştır.
-version = 1
+version = 2
 
 cloudstream {
     authors     = listOf("stf6")
